@@ -46,6 +46,9 @@ client.on('message',(message)=>{
             case 'moregames':
                 client.commands.get('moregames').execute(message,args)
                 break;
+            case 'gitrepo':
+                client.commands.get('gitrepo').execute(message,args)
+                break; 
             case 'kick':
                 client.commands.get('kick').execute(message,args)
                 break;    
