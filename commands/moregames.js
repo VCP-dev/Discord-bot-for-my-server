@@ -5,7 +5,7 @@ module.exports = {
     description:'Link to my itch.io page',
     execute(message,args){
         if(message.member.roles.cache.has(token.roleids.fellow_pig)){
-        message.channel.send("https://badpiggy.itch.io/")
+        message.channel.send("Quack !! Here are more games by BadPiggy\nhttps://badpiggy.itch.io/")
         }
         else{
             message.channel.send("Quack !!  You aren't a fellow pig yet. We shall make you one !!!")
