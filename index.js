@@ -29,10 +29,11 @@ client.once('ready',()=>{
     console.log("Quack quack. Duck bot is ready")
 })
 
+
 client.on('message',(message)=>{
     // if the message does not start with the prefix '!' or if the author of the message is the bot
     if(!message.content.startsWith(prefix) || message.author.bot){
-
+        return
     }    
     else{
        
@@ -40,6 +41,14 @@ client.on('message',(message)=>{
         const command = args.shift().toLowerCase()
 
         switch(command){
+            case 'allcommands':
+                let commandlist="Prefix the following with !\n\n\n"
+                for(const file of commandFiles){
+                    let cmd = require(`./commands/${file}`)
+                    commandlist+=(cmd.name+":\n"+cmd.description+"\n\n")                    
+                }
+                message.channel.send("```"+commandlist+"```") 
+                break; 
             case 'quack':   
                 client.commands.get('quack').execute(message,args)
                 break;
@@ -54,7 +63,7 @@ client.on('message',(message)=>{
                 break;  
             case 'test':
                 client.commands.get('test').execute(message,args)
-                break;      
+                break;          
             default:
                 message.channel.send("Quack ?")
                 break;    
@@ -62,6 +71,7 @@ client.on('message',(message)=>{
 
     }
 })
+
 
 
 client.login(token.tokenvalue)
