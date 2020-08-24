@@ -51,7 +51,10 @@ client.on('message',(message)=>{
                 break; 
             case 'kick':
                 client.commands.get('kick').execute(message,args)
-                break;    
+                break;  
+            case 'test':
+                client.commands.get('test').execute(message,args)
+                break;      
             default:
                 message.channel.send("Quack ?")
                 break;    
