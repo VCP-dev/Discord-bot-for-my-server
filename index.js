@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 const token = require('./token')
+const simplemessageembed = require('./commonstuff/simplemesgembed')
 
 
 // currently for duck bot
@@ -45,9 +46,9 @@ client.on('message',(message)=>{
                 let commandlist="Prefix the following with !\n\n\n"
                 for(const file of commandFiles){
                     let cmd = require(`./commands/${file}`)
-                    commandlist+=(cmd.name+":\n"+cmd.description+"\n\n")                    
-                }
-                message.channel.send("```"+commandlist+"```") 
+                    commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")                    
+                }        
+                message.channel.send(simplemessageembed.embed(commandlist))
                 break; 
             case 'quack':   
                 client.commands.get('quack').execute(message,args)
