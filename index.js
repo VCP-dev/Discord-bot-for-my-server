@@ -64,7 +64,13 @@ client.on('message',(message)=>{
                 break;  
             case 'test':
                 client.commands.get('test').execute(message,args)
-                break;          
+                break;     
+            case 'clearchannel':
+                client.commands.get('clearchannel').execute(message,args)
+                break;     
+            case 'botstatus':
+                client.commands.get('botstatus').execute(client,message,args)
+                break;       
             default:
                 message.channel.send("Quack ?")
                 break;    
