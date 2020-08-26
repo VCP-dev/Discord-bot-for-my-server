@@ -62,6 +62,9 @@ client.on('message',(message)=>{
             case 'kick':
                 client.commands.get('kick').execute(message,args)
                 break;  
+            case 'ban':
+                client.commands.get('ban').execute(message,args)
+                break;    
             case 'test':
                 client.commands.get('test').execute(message,args)
                 break;     
