@@ -9,7 +9,7 @@ module.exports = {
         
         if(message.member.roles.cache.has(token.roleids.mod) && message.member.permissions.has("ADMINISTRATOR")){
 
-               const content = message.content.replace("!botstatus ",'')
+               const content = message.content.replace("[]botstatus ",'')
                client.user.setPresence({
                    activity:{
                        name:content,
