@@ -70,7 +70,7 @@ client.on('message',(message)=>{
                 break;     
             case 'botstatus':
                 client.commands.get('botstatus').execute(client,message,args)
-                break;       
+                break;     
             default:
                 message.channel.send("Quack ?")
                 break;    

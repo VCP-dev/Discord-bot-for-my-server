@@ -22,7 +22,7 @@ module.exports = {
         }
         else{    
 
-            message.channel.send(simplemessageembed.embed("Quack !! You don't have permission to set my status. Don't send this command !!"))      
+            message.reply("Quack !! You don't have permission to set my status. Don't send this command !!")
             
         }
         
