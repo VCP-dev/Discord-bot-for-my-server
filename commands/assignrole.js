@@ -5,7 +5,7 @@ module.exports = {
     name:'assignrole',
     who_can_use:'admin_only',
     description:'to assign roles to peeps',
-    execute(message,args){
+    async execute(message,args){
         if(message.member.roles.cache.has(token.roleids.mod) && message.member.permissions.has("MANAGE_ROLES"))
         {    
             //  if an actual user was mentioned
