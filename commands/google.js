@@ -1,3 +1,5 @@
+const simplemessageembed = require('../commonstuff/simplemesgembed')
+
 module.exports = {
     name:'google',
     who_can_use:'everyone',
