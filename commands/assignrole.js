@@ -9,7 +9,7 @@ module.exports = {
         if(message.member.roles.cache.has(token.roleids.mod) && message.member.permissions.has("MANAGE_ROLES"))
         {    
             //  if an actual user was mentioned
-            const user = message.mentions.users.first()
+            const user = message.mentions.members.first()
 
             if(!user){
                 message.channel.send(simplemessageembed.embed("Quack !! Please specify the user you would like to give a role to"))
@@ -20,9 +20,12 @@ module.exports = {
                     message.channel.send(simplemessageembed.embed("Quack !! Please enter an actual role for the user"))
                 }
                 else{
-                    await user.addRole(role.id), message.channel.send(simplemessageembed.embed(`${user} now has the ${role} role`))
+                    //await user.addRole(role.id), message.channel.send(simplemessageembed.embed(`${user} now has the ${role} role`))
+                    user.roles.add(role)
+                    message.channel.send(simplemessageembed.embed(`${user} now has the ${role} role`))
                 }
             }
+           
         }
         else
         {
