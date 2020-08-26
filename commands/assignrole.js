@@ -1,3 +1,4 @@
+const token = require('../token')
 const simplemessageembed = require('../commonstuff/simplemesgembed')
 
 module.exports = {
