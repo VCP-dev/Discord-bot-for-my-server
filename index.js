@@ -44,10 +44,27 @@ client.on('message',(message)=>{
         switch(command){
             case 'allcommands':
                 let commandlist="Prefix the following with []\n\n\n"
+                let admincommands=[]
+                //let everyonecommands=[]
+                commandlist+="Commands anyone can use:\n\n"
                 for(const file of commandFiles){
                     let cmd = require(`./commands/${file}`)
-                    commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")                    
-                }        
+                    if(cmd.who_can_use==="everyone"){
+                        //everyonecommands.push(cmd)
+                        commandlist+=cmd.name+"\n"+"```"+cmd.description+"```"+"\n"
+                    }else if(cmd.who_can_use==="admin_only"){
+                        admincommands.push(cmd)
+                    }
+                    //commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")                    
+                }    
+                //commandlist+="Commands anyone can use:\n\n"
+                /*everyonecommands.forEach((cmd)=>{
+                    commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")
+                })*/ 
+                commandlist+="\n\nCommands only admins can use:\n\n"
+                admincommands.forEach((cmd)=>{
+                    commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")
+                })   
                 message.channel.send(simplemessageembed.embed(commandlist))
                 break; 
             case 'quack':   
@@ -64,10 +81,7 @@ client.on('message',(message)=>{
                 break;  
             case 'ban':
                 client.commands.get('ban').execute(message,args)
-                break;    
-            case 'test':
-                client.commands.get('test').execute(message,args)
-                break;     
+                break;      
             case 'clearchannel':
                 client.commands.get('clearchannel').execute(message,args)
                 break;     

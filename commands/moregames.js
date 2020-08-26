@@ -2,6 +2,7 @@ const token = require('../token')
 
 module.exports = {
     name:'moregames',
+    who_can_use:'everyone',
     description:"Link to BadPiggy's itch.io page",
     execute(message,args){
         if(message.member.roles.cache.has(token.roleids.fellow_pig)){

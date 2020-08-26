@@ -4,6 +4,7 @@ const simplemessageembed = require('../commonstuff/simplemesgembed')
 
 module.exports = {
     name:'botstatus',
+    who_can_use:'admin_only',
     description:'to change status of bot',
     execute(client,message,args){
         

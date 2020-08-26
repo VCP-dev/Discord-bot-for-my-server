@@ -4,6 +4,7 @@ const simplemessageembed = require('../commonstuff/simplemesgembed')
 
 module.exports = {
     name:'clearchannel',
+    who_can_use:'admin_only',
     description:'to clear all messages in a channel',
     execute(message,args){
         

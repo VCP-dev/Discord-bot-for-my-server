@@ -4,6 +4,7 @@ const simplemessageembed = require('../commonstuff/simplemesgembed')
 
 module.exports = {
     name:'ban',
+    who_can_use:'admin_only',
     description:'TO BAN A MEMBER',
     execute(message,args){        
         if(message.member.roles.cache.has(token.roleids.mod) && message.member.permissions.has("BAN_MEMBERS"))

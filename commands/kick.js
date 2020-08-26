@@ -5,6 +5,7 @@ const simplemessageembed = require('../commonstuff/simplemesgembed')
 
 module.exports = {
     name:'kick',
+    who_can_use:'admin_only',
     description:'to kick a member',
     execute(message,args){
         
