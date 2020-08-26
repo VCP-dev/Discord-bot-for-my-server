@@ -61,7 +61,10 @@ client.on('message',(message)=>{
                 break;  
             case 'ban':
                 client.commands.get('ban').execute(message,args)
-                break;      
+                break;
+            case 'google':
+                client.commands.get('google').execute(message,args)
+                break;          
             case 'clearchannel':
                 client.commands.get('clearchannel').execute(message,args)
                 break;  
