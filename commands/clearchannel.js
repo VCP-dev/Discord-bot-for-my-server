@@ -13,6 +13,9 @@ module.exports = {
                 message.channel.bulkDelete(messages)
             })   
 
+
+            message.channel.send(simplemessageembed.embed("Quack !! This channel has been cleared"))      
+
         }
         else{    
 

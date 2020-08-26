@@ -9,7 +9,7 @@ const simplemessageembed = require('./commonstuff/simplemesgembed')
 
 const client = new Discord.Client()
 
-const prefix='!'
+const prefix='[]'
 
 
 
@@ -43,7 +43,7 @@ client.on('message',(message)=>{
 
         switch(command){
             case 'allcommands':
-                let commandlist="Prefix the following with !\n\n\n"
+                let commandlist="Prefix the following with []\n\n\n"
                 for(const file of commandFiles){
                     let cmd = require(`./commands/${file}`)
                     commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")                    
