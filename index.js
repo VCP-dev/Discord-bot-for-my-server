@@ -64,7 +64,10 @@ client.on('message',(message)=>{
                 break;      
             case 'clearchannel':
                 client.commands.get('clearchannel').execute(message,args)
-                break;     
+                break;  
+            case 'assignrole':
+                client.commands.get('assignrole').execute(message,args)
+                break;       
             case 'botstatus':
                 client.commands.get('botstatus').execute(client,message,args)
                 break;     
