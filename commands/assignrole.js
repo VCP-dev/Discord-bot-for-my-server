@@ -20,8 +20,7 @@ module.exports = {
                     message.channel.send(simplemessageembed.embed("Quack !! Please enter an actual role for the user"))
                 }
                 else{
-                    user.addRole(role.id)
-                    message.channel.send(simplemessageembed.embed(`${user} now has the ${role} role`))
+                    await user.addRole(role.id), message.channel.send(simplemessageembed.embed(`${user} now has the ${role} role`))
                 }
             }
         }
