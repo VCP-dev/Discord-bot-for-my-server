@@ -15,7 +15,7 @@ module.exports = {
                 message.channel.send(simplemessageembed.embed("Quack !! Please specify the user you would like to give a role to"))
             }
             else{
-                const role = message.guild.roles.find(r => r.name === args.slice(1).join(" "))
+                const role = message.guild.roles.cache.find(r => r.name === args.slice(1).join(" "))
                 if(!role){
                     message.channel.send(simplemessageembed.embed("Quack !! Please enter an actual role for the user"))
                 }
