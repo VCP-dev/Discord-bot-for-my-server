@@ -9,7 +9,7 @@ module.exports = {
         if(message.member.roles.cache.has(token.roleids.mod) && message.member.permissions.has("MANAGE_ROLES"))
         {    
             //  if an actual user was mentioned
-            const user = message.members.mentions.first()
+            const user = message.mentions.users.first()
 
             if(!user){
                 message.channel.send(simplemessageembed.embed("Quack !! Please specify the user you would like to give a role to"))
