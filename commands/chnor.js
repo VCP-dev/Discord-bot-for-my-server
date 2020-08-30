@@ -9,7 +9,7 @@ module.exports = {
 
        fetch('http://api.icndb.com/jokes/random')
             .then(response => response.json())
-            .then(fetchedjoke => message.channel.send(joke.replace("&quot;",'"')));      
+            .then(fetchedjoke => message.channel.send(fetchedjoke.value.joke).replace("&quot;",'"'));      
 
     }
 }
