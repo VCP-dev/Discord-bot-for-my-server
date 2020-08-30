@@ -57,8 +57,8 @@ client.on('message',(message)=>{
         switch(command){
             case 'allcommands':
                 let commandlist="Prefix the following with []\n\n\n"     
-                const commandsforeveryone = commandFiles.filter(comm => comm.who_can_use==="everyone")         
-                const commandsforadmins = commandFiles.filter(comm => comm.who_can_use==="admin_only")  
+                const commandsforeveryone = commandFiles.filter(comm => require(`./commands/${comm}`).who_can_use==="everyone")         
+                const commandsforadmins = commandFiles.filter(comm => require(`./commands/${comm}`).who_can_use==="admin_only")  
                 /*for(const file of commandFiles){
                     let cmd = require(`./commands/${file}`)                    
                     commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")                                      
