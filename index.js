@@ -69,7 +69,7 @@ client.on('message',(message)=>{
                     commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")         
                 }
                 
-                commandlist+="\nCommands only for admins:\n\n"
+                commandlist+="\n\n\nCommands only for admins:\n\n"
                 for(const file of commandsforadmins){
                     let cmd = require(`./commands/${file}`)                    
                     commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")         
