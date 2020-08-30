@@ -35,7 +35,13 @@ client.on('message',(message)=>{
     // if the message does not start with the prefix '!' or if the author of the message is the bot
     if(!message.content.startsWith(prefix) || message.author.bot){
         return
-    }    
+    }
+    else if(!message.author.bot && !message.content.startsWith(prefix)){
+        const sentence = message.content.toLowerCase()
+        if(sentence.search("ducks")>0 || sentence.search("duck")>0){
+            message.channel.send("Quack. Did someone call me ?")
+        }
+    }
     else{
        
         const args = message.content.slice(prefix.length).split(/ +/)
@@ -75,7 +81,7 @@ client.on('message',(message)=>{
                 client.commands.get('botstatus').execute(client,message,args)
                 break;     
             default:
-                message.channel.send("Quack ?")
+                message.channel.send("Quack ? That command does not exist")
                 break;    
         }
 
