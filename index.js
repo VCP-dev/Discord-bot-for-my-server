@@ -86,7 +86,13 @@ client.on('message',(message)=>{
                 break;       
             case 'botstatus':
                 client.commands.get('botstatus').execute(client,message,args)
-                break;     
+                break;  
+            case 'f':
+                client.commands.get('f').execute(message,args)
+                break;
+            case 'chnor':
+                client.commands.get('chnor').execute(message,args)
+                break;           
             default:
                 message.channel.send("Quack ? That command does not exist")
                 break;    

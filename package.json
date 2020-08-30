@@ -4,11 +4,12 @@
   "description": "basic bot",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.3.1"
+    "discord.js": "^12.3.1",
+    "node-fetch": "^2.6.0"
   }
 }
