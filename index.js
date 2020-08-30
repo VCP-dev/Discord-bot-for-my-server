@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const fs = require('fs')
 const token = require('./token')
 const simplemessageembed = require('./commonstuff/simplemesgembed')
+const linkvalidation = require('./linkvalidation')
 
 
 // currently for duck bot
@@ -32,19 +33,23 @@ client.once('ready',()=>{
 
 
 client.on('message',(message)=>{
-    // if the message does not start with the prefix '!' or if the author of the message is the bot
+    // if the author of the message is the bot
     if(message.author.bot){
         return
     }
+    // for a normal message typed by a user
     else if(!message.author.bot && !message.content.startsWith(prefix)){
-        const sentence = message.content.toLowerCase()
-        if(sentence.search("ducks")>0 || sentence.search("duck")>0){
+
+        const sentence = message.content.toLowerCase()   
+
+        if((sentence.search("ducks")>0 || sentence.search("duck")>0) || (sentence==="duck")){
             message.channel.send("Quack. You talking to me ?")
-        }
+        }   
         else{
             return;
         }
     }
+    // if the message was a command
     else{
        
         const args = message.content.slice(prefix.length).split(/ +/)
