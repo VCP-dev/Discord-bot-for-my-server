@@ -7,7 +7,7 @@ module.exports = {
     description:'Some jokes about Chuck Norris',
     execute(message,args){
 
-       const { fetchedjoke } = fetch('http://api.icndb.com/jokes/random').then(response => response.json());
+       const { fetchedjoke } = await fetch('http://api.icndb.com/jokes/random').then(response => response.json());
 
        console.log(fetchedjoke)
 
