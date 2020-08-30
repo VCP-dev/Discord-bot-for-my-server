@@ -41,7 +41,7 @@ client.on('message',(message)=>{
 
         const sentence = message.content.toLowerCase()
 
-        if((sentence.search("ducks")>0 || sentence.search("duck")>0) || (sentence==="duck")){
+        if((sentence.search("ducks")>0 || sentence.search("duck")>0 && sentence.search(":")<0) || (sentence==="duck")){
             message.channel.send("Quack. You talking to me ?")
         }   
         else{
