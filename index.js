@@ -56,11 +56,26 @@ client.on('message',(message)=>{
 
         switch(command){
             case 'allcommands':
-                let commandlist="Prefix the following with []\n\n\n"                
-                for(const file of commandFiles){
+                let commandlist="Prefix the following with []\n\n\n"     
+                const commandsforeveryone = commandFiles.filter(comm => comm.who_can_use==="everyone")         
+                const commandsforadmins = commandFiles.filter(comm => comm.who_can_use==="admin_only")  
+                /*for(const file of commandFiles){
                     let cmd = require(`./commands/${file}`)                    
                     commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")                                      
-                }        
+                }*/
+                commandlist+="Commands for everyone:\n\n"
+                for(const file of commandsforeveryone){
+                    let cmd = require(`./commands/${file}`)                    
+                    commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")         
+                }
+                
+                commandlist+="\nCommands only for admins:\n\n"
+                for(const file of commandsforadmins){
+                    let cmd = require(`./commands/${file}`)                    
+                    commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")         
+                }
+                
+
                 message.channel.send(simplemessageembed.embed(commandlist))
                 break; 
             case 'quack':   
