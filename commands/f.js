@@ -1,7 +1,7 @@
 module.exports = {
     name:'f',
     who_can_use:'everyone',
-    description:'F',
+    description:'Press F to pay respect',
     execute(message,args){
         message.channel.send("F")
     }
