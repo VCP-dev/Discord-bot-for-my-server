@@ -1,5 +1,5 @@
 module.exports = {
-    name:'allcommands',
+    name:'help',
     who_can_use:'everyone',
     description:'for getting all commands of bot'
 
