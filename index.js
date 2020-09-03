@@ -78,6 +78,9 @@ client.on('message',(message)=>{
 
                 message.channel.send(simplemessageembed.embed(commandlist))
                 break; 
+            case 'intro':
+                client.commands.get('intro').execute(message,args)
+                break;  
             case 'quack':   
                 client.commands.get('quack').execute(message,args)
                 break;
