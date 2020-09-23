@@ -1,3 +1,22 @@
+// code for express server
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => res.send('Hello World!'));
+
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+
+
+
+
+
+
+
+///  STARTING OF CODE FOR BOT
+
+
 const Discord = require('discord.js')
 const fs = require('fs')
 const token = require('./token')
