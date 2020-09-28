@@ -75,7 +75,7 @@ client.on('message',(message)=>{
                     commandlist+=("[]help admin"+"\n"+"```"+"Commands only for admins"+"```"+"\n")
                 } 
                 else{
-                    commandlist="Prefix the following with []help\n\n\n"  
+                    commandlist="Prefix the following with []\n\n\n"  
                     switch(args[0]){    
                         case "everyone":
                             const commandsforeveryone = commandFiles.filter(comm => require(`./commands/${comm}`).who_can_use==="everyone")
