@@ -65,13 +65,45 @@ client.on('message',(message)=>{
 
         switch(command){
             case 'help':
-                let commandlist="Prefix the following with []\n\n\n"     
-                const commandsforeveryone = commandFiles.filter(comm => require(`./commands/${comm}`).who_can_use==="everyone")         
+                const args = message.content.slice(prefix.length).split(/ +/)
+        const command = args.shift().toLowerCase()
+        let commandlist=""
+        switch(command){
+            case 'help':                  
+                if(args.length<1){                    
+                    commandlist+=("[]help everyone"+"\n"+"```"+"Commands which everyone can use"+"```"+"\n")
+                    commandlist+=("[]help admin"+"\n"+"```"+"Commands only for admins"+"```"+"\n")
+                } 
+                else{
+                    commandlist="Prefix the following with []help\n\n\n"  
+                    switch(args[0]){    
+                        case "everyone":
+                            const commandsforeveryone = commandFiles.filter(comm => require(`./commands/${comm}`).who_can_use==="everyone")
+                            commandlist+="Commands for everyone:\n\n"
+                            for(const file of commandsforeveryone){
+                               let cmd = require(`./commands/${file}`)                    
+                               commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")         
+                            }
+                            break;
+                        case "admin":
+                            const commandsforadmins = commandFiles.filter(comm => require(`./commands/${comm}`).who_can_use==="admin_only")
+                            commandlist+="Commands only for admins:\n\n"
+                            for(const file of commandsforadmins){
+                                let cmd = require(`./commands/${file}`)                    
+                                commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")         
+                            }
+                            break;    
+                        default:
+                            commandlist="";
+                            commandlist+=`Quack !! ${args} is not a registered type of command`    
+                    }
+                }
+               /* const commandsforeveryone = commandFiles.filter(comm => require(`./commands/${comm}`).who_can_use==="everyone")         
                 const commandsforadmins = commandFiles.filter(comm => require(`./commands/${comm}`).who_can_use==="admin_only")  
-                /*for(const file of commandFiles){
-                    let cmd = require(`./commands/${file}`)                    
-                    commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")                                      
-                }*/
+                //for(const file of commandFiles){
+                //    let cmd = require(`./commands/${file}`)                    
+                //    commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")                                      
+               // }
                 commandlist+="Commands for everyone:\n\n"
                 for(const file of commandsforeveryone){
                     let cmd = require(`./commands/${file}`)                    
@@ -83,7 +115,7 @@ client.on('message',(message)=>{
                     let cmd = require(`./commands/${file}`)                    
                     commandlist+=(cmd.name+"\n"+"```"+cmd.description+"```"+"\n")         
                 }
-                
+                */
 
                 message.channel.send(simplemessageembed.embed(commandlist))
                 break; 
