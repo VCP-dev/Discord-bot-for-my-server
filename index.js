@@ -117,6 +117,9 @@ client.on('message',(message)=>{
             case 'f':
                 client.commands.get('f').execute(message,args)
                 break;
+            case 'github':
+                client.commands.get('github').execute(message,args)
+                break;    
             case 'chnor':
                 client.commands.get('chnor').execute(message,args)
                 break;           
