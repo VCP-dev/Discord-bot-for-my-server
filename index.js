@@ -62,11 +62,6 @@ client.on('message',(message)=>{
        
         const args = message.content.slice(prefix.length).split(/ +/)
         const command = args.shift().toLowerCase()
-
-        switch(command){
-            case 'help':
-                const args = message.content.slice(prefix.length).split(/ +/)
-        const command = args.shift().toLowerCase()
         let commandlist=""
         switch(command){
             case 'help':                  
