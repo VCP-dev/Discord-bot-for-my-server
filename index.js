@@ -140,7 +140,7 @@ client.on('message',(message)=>{
                 break;       
             case 'botstatus':
                 client.commands.get('botstatus').execute(client,message,args)
-                break;  
+                break;      
             case 'f':
                 client.commands.get('f').execute(message,args)
                 break;
@@ -149,7 +149,16 @@ client.on('message',(message)=>{
                 break;    
             case 'chnor':
                 client.commands.get('chnor').execute(message,args)
-                break;           
+                break; 
+            case 'meme':
+                client.commands.get('meme').execute(message,args)
+                break;   
+            case 'serverinfo':
+                client.commands.get('serverinfo').execute(message,args)
+                break;    
+            case 'progjoke':
+                client.commands.get('progjoke').execute(message,args)
+                break;          
             default:
                 message.channel.send("Quack ? That command does not exist")
                 break;    
