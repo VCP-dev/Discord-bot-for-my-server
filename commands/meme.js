@@ -27,7 +27,8 @@ module.exports = {
       }).catch(err => {
             message.channel.send("Quack !! Could not fetch meme")
             console.error(err)
-      });      
+            message.channel.stopTyping();
+      });       
 
     }
 }
